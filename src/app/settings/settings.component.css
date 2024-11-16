@@ -1,0 +1,10 @@
+/* src/app/settings/settings.component.css */
+
+.settings-container {
+  padding: 20px;
+}
+
+.content {
+  margin-left: 250px; /* Ajusta este valor si tu sidebar tiene un ancho diferente */
+  padding: 20px;
+}

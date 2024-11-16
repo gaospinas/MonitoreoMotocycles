@@ -1,24 +1,30 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { routes } from './app.routes'; // Importa las rutas definidas
+import { AuthComponent } from './auth/auth.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SettingsComponent } from './settings/settings.component';
+import { UsersComponent } from './users/users.component';
+import { appRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    AuthComponent,
+    SidebarComponent,
+    SettingsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes), // Usa RouterModule.forRoot
+    FormsModule,
     HttpClientModule,
-    FormsModule
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
