@@ -1,0 +1,26 @@
+<div class="auth-container">
+  <h2>{{ isLoginMode ? 'Login' : 'Register' }}</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div *ngIf="!isLoginMode">
+      <label for="username">Username</label>
+      <input type="text" id="username" [(ngModel)]="user.username" name="username" required>
+    </div>
+    <label for="email">Email</label>
+    <input type="email" id="email" [(ngModel)]="user.email" name="email" required>
+    <label for="password">Password</label>
+    <input type="password" id="password" [(ngModel)]="user.password" name="password" required>
+    <div *ngIf="!isLoginMode">
+      <h3>Motorcycle Details</h3>
+      <label for="licensePlate">License Plate</label>
+      <input type="text" id="licensePlate" [(ngModel)]="motorcycle.licensePlate" name="licensePlate" required>
+      <label for="brand">Brand</label>
+      <input type="text" id="brand" [(ngModel)]="motorcycle.brand" name="brand" required>
+      <label for="model">Model</label>
+      <input type="text" id="model" [(ngModel)]="motorcycle.model" name="model" required>
+      <label for="fuelTypeId">Fuel Type ID</label>
+      <input type="number" id="fuelTypeId" [(ngModel)]="motorcycle.fuelTypeId" name="fuelTypeId" required>
+    </div>
+    <button type="submit">{{ isLoginMode ? 'Login' : 'Register' }}</button>
+  </form>
+  <button (click)="onSwitchMode()">{{ isLoginMode ? 'Switch to Register' : 'Switch to Login' }}</button>
+</div>
