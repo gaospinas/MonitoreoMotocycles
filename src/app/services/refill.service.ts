@@ -19,4 +19,8 @@ export class RefillService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<Refill>(`${this.apiUrl}/add`, refill, { headers });
   }
+
+  getAllUserMotorcycleRefills(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/allUserMotorcycleRefills`);
+  }
 }

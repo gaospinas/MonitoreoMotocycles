@@ -19,6 +19,7 @@ import { UsersComponent } from './users/users.component';
 import { FuelComparisonComponent } from './fuel-comparison/fuel-comparison.component';
 import { EditMotorcycleComponent } from './edit-motorcycle/edit-motorcycle.component'; // Importa y declara EditMotorcycleComponent
 import { appRoutes } from './app.routes';
+import {AllFuelComparisonComponent} from './all-fuel-comparison/all-fuel-comparison.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { appRoutes } from './app.routes';
     SettingsComponent,
     UsersComponent,
     FuelComparisonComponent,
-    EditMotorcycleComponent // Asegúrate de declarar EditMotorcycleComponent
+    EditMotorcycleComponent, // Asegúrate de declarar EditMotorcycleComponent
+    AllFuelComparisonComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { appRoutes } from './app.routes';
     MatButtonModule, // Importa MatButtonModule
     MatFormFieldModule, // Importa MatFormFieldModule
     MatInputModule // Importa MatInputModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

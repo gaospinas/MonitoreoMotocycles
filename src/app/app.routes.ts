@@ -5,6 +5,7 @@ import { AuthComponent } from './auth/auth.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersComponent } from './users/users.component';
 import { FuelComparisonComponent } from './fuel-comparison/fuel-comparison.component';
+import { AllFuelComparisonComponent} from './all-fuel-comparison/all-fuel-comparison.component';
 
 export const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -12,6 +13,7 @@ export const appRoutes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'users', component: UsersComponent },
   { path: 'fuel-comparison', component: FuelComparisonComponent },
+  {path: 'all-fuel-comparison', component: AllFuelComparisonComponent},
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
