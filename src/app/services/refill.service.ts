@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Refill } from '../models/refill.model';
 
@@ -16,6 +16,7 @@ export class RefillService {
   }
 
   addRefill(refill: Refill): Observable<Refill> {
-    return this.http.post<Refill>(`${this.apiUrl}/refills`, refill);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Refill>(`${this.apiUrl}/add`, refill, { headers });
   }
 }
