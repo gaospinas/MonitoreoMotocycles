@@ -4,6 +4,6 @@ export interface Refill {
   fuelTypeId: number;
   quantity: number;
   cost: number;
-  fecha: string;
+  date: Date;
   efficiency: number;
 }

@@ -14,4 +14,8 @@ export class RefillService {
   getRefillsByMotorcycleId(motorcycleId: number): Observable<Refill[]> {
     return this.http.get<Refill[]>(`${this.apiUrl}/motorcycle/${motorcycleId}`);
   }
+
+  addRefill(refill: Refill): Observable<Refill> {
+    return this.http.post<Refill>(`${this.apiUrl}/refills`, refill);
+  }
 }
