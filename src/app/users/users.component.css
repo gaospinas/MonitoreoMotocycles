@@ -1,10 +1,28 @@
-/* src/app/users/users.component.css */
-
 .users-container {
-  padding: 20px;
+  display: flex;
 }
 
 .content {
-  margin-left: 250px; /* Ajusta este valor si tu sidebar tiene un ancho diferente */
+  flex: 1;
   padding: 20px;
+  margin-left: 250px; /* Ajusta este valor si tu sidebar tiene un ancho diferente */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
 }
