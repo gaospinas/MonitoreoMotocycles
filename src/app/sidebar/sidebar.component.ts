@@ -1,6 +1,4 @@
-// src/app/sidebar/sidebar.component.ts
-
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -10,12 +8,14 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+  @Output() collapseEvent = new EventEmitter<boolean>();
   isCollapsed = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
+    this.collapseEvent.emit(this.isCollapsed);
   }
 
   logout() {

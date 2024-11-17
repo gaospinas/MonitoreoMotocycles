@@ -1,5 +1,3 @@
-// src/app/dashboard/dashboard.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { MotorcycleService } from '../services/motorcycle.service';
@@ -14,6 +12,7 @@ import { User } from '../models/user.model';
 export class DashboardComponent implements OnInit {
   user?: User;
   motorcycles?: Motorcycle[];
+  isSidebarCollapsed = false;
 
   constructor(
     private authService: AuthService,
@@ -44,5 +43,9 @@ export class DashboardComponent implements OnInit {
     this.motorcycleService.deleteMotorcycle(id).subscribe(() => {
       this.motorcycles = this.motorcycles?.filter(m => m.id !== id);
     });
+  }
+
+  onSidebarCollapse(collapsed: boolean) {
+    this.isSidebarCollapsed = collapsed;
   }
 }

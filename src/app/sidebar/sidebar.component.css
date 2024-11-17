@@ -3,8 +3,12 @@
   height: 100%;
   background-color: #333;
   color: #fff;
-  position: fixed;
+  position: fixed; /* Posición fija para que quede en su lugar al hacer scroll */
+  top: 0;
+  left: 0;
+  overflow: hidden; /* Esconde el contenido que se desborda */
   transition: width 0.3s ease;
+  z-index: 1000; /* Asegúrate de que el sidebar esté encima del contenido principal */
 }
 
 .sidebar.collapsed {
@@ -24,7 +28,7 @@
 
 .sidebar-menu li {
   padding: 15px;
-  text-align: center;
+  text-align: left; /* Alineación a la izquierda */
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -36,4 +40,5 @@
 
 .sidebar-menu li i.material-icons {
   margin-right: 10px;
+  vertical-align: middle; /* Asegúrate de que el icono esté alineado verticalmente con el texto */
 }

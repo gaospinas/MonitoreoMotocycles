@@ -1,0 +1,15 @@
+.dashboard-container {
+  padding: 20px;
+  margin-left: 250px; /* Ajusta este valor si tu sidebar tiene un ancho diferente */
+  transition: margin-left 0.3s ease; /* Agrega una transición suave para el ajuste del margen */
+}
+
+.dashboard-container.collapsed {
+  margin-left: 80px; /* Ajusta este valor si tu sidebar colapsado tiene un ancho diferente */
+}
+
+.content {
+  padding: 20px;
+  background-color: #f4f4f4; /* Color de fondo para el contenido */
+  border-radius: 5px; /* Bordes redondeados para el contenido */
+}
