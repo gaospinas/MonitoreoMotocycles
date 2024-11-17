@@ -1,9 +1,15 @@
-import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+// src/app/app.routes.ts
 
-export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+import { Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthComponent } from './auth/auth.component';
+import { SettingsComponent } from './settings/settings.component';
+import { UsersComponent } from './users/users.component';
+
+export const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' }
+  { path: 'auth', component: AuthComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'users', component: UsersComponent },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' }
 ];

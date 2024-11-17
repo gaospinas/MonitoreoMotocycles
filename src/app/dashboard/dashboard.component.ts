@@ -1,5 +1,7 @@
+// src/app/dashboard/dashboard.component.ts
+
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../services/auth.service';
 import { MotorcycleService } from '../services/motorcycle.service';
 import { Motorcycle } from '../models/motorcycle.model';
 import { User } from '../models/user.model';
@@ -20,7 +22,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.getUserFromLocalStorage();
-    console.log('Logged in user:', this.user); // Verifica que el usuario está cargado
     if (this.user) {
       this.loadMotorcycles(this.user.id);
     } else {
@@ -29,11 +30,19 @@ export class DashboardComponent implements OnInit {
   }
 
   loadMotorcycles(ownerId: number): void {
-    this.motorcycleService.getMotorcyclesByOwnerId(ownerId).subscribe(motorcycles => {
+    this.motorcycleService.getMotorcyclesByOwnerId(ownerId).subscribe((motorcycles: Motorcycle[]) => {
       this.motorcycles = motorcycles;
-      console.log('Loaded motorcycles:', this.motorcycles); // Verifica que las motocicletas están cargadas
-    }, error => {
-      console.error('Error loading motorcycles:', error);
+      console.log('Motorcycles:', this.motorcycles);
+    });
+  }
+
+  editMotorcycle(motorcycle: Motorcycle): void {
+    // Implementar la lógica de edición aquí
+  }
+
+  deleteMotorcycle(id: number): void {
+    this.motorcycleService.deleteMotorcycle(id).subscribe(() => {
+      this.motorcycles = this.motorcycles?.filter(m => m.id !== id);
     });
   }
 }

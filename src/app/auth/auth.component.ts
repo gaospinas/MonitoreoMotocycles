@@ -1,3 +1,5 @@
+// src/app/auth/auth.component.ts
+
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -31,13 +33,13 @@ export class AuthComponent {
     if (this.isLoginMode) {
       this.authService.login(this.user.email, this.user.password).subscribe(() => {
         this.router.navigate(['/dashboard']);
-      }, error => {
+      }, (error: any) => {
         console.error('Login failed:', error);
       });
     } else {
       this.authService.register(this.user, this.motorcycle).subscribe(() => {
         this.router.navigate(['/dashboard']);
-      }, error => {
+      }, (error: any) => {
         console.error('Registration failed:', error);
       });
     }

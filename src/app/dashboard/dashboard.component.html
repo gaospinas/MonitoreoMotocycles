@@ -1,18 +1,40 @@
 <div class="dashboard-container">
-  <h2>Welcome, {{ user?.name }}</h2>
-  <div *ngIf="user">
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-  </div>
-
-  <h2>Your Motorcycles</h2>
-  <div *ngIf="motorcycles && motorcycles.length > 0; else noMotorcycles">
-    <div *ngFor="let motorcycle of motorcycles">
-      <h3>{{ motorcycle.brand }} {{ motorcycle.model }} ({{ motorcycle.licensePlate }})</h3>
-      <p>Fuel Type ID: {{ motorcycle.fuelTypeId }}</p>
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <h2>Welcome, {{ user?.name }}</h2>
+    <div *ngIf="user">
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
     </div>
+
+    <h2>Your Motorcycles</h2>
+    <div *ngIf="motorcycles && motorcycles.length > 0; else noMotorcycles">
+      <table>
+        <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>License Plate</th>
+          <th>Fuel Type ID</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let motorcycle of motorcycles">
+          <td>{{ motorcycle.brand }}</td>
+          <td>{{ motorcycle.model }}</td>
+          <td>{{ motorcycle.licensePlate }}</td>
+          <td>{{ motorcycle.fuelTypeId }}</td>
+          <td>
+            <button (click)="editMotorcycle(motorcycle)">Edit</button>
+            <button (click)="deleteMotorcycle(motorcycle.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #noMotorcycles>
+      <p>No motorcycles found for this user.</p>
+    </ng-template>
   </div>
-  <ng-template #noMotorcycles>
-    <p>No motorcycles found for this user.</p>
-  </ng-template>
 </div>

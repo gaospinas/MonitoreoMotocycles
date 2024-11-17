@@ -1,3 +1,5 @@
+// src/app/services/auth.service.ts
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -14,22 +16,22 @@ export class AuthService {
   login(email: string, password: string): Observable<any> {
     const loginData = { email, password };
     return this.http.post<any>(`${this.apiUrl}/login`, loginData).pipe(
-      tap(user => {
-        if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
-          console.log('User logged in and saved to localStorage:', user);
-        } else {
-          console.error('Login failed, no user returned');
-        }
-      })
+        tap(user => {
+          if (user) {
+            localStorage.setItem('user', JSON.stringify(user));
+            console.log('User logged in and saved to localStorage:', user);
+          } else {
+            console.error('Login failed, no user returned');
+          }
+        })
     );
   }
 
   register(user: any, motorcycle: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register`, { user, motorcycle }).pipe(
-      tap(newUser => {
-        console.log('User registered successfully:', newUser);
-      })
+        tap(newUser => {
+          console.log('User registered successfully:', newUser);
+        })
     );
   }
 
