@@ -1,9 +1,25 @@
-<!-- src/app/users/users.component.html -->
-
 <div class="users-container">
   <app-sidebar></app-sidebar>
   <div class="content">
     <h2>Otros Usuarios</h2>
-    <!-- Tabla de usuarios y gráficos comparativos -->
+    <table *ngIf="users && users.length > 0; else noUsers">
+      <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Nombre</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.name }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <ng-template #noUsers>
+      <p>No hay usuarios disponibles.</p>
+    </ng-template>
   </div>
 </div>
