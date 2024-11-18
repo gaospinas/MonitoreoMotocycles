@@ -20,6 +20,9 @@ import { FuelComparisonComponent } from './fuel-comparison/fuel-comparison.compo
 import { EditMotorcycleComponent } from './edit-motorcycle/edit-motorcycle.component'; // Importa y declara EditMotorcycleComponent
 import { appRoutes } from './app.routes';
 import {AllFuelComparisonComponent} from './all-fuel-comparison/all-fuel-comparison.component';
+import {EfficiencyByFuelTypeComponent} from './efficiency-by-fuel-type/efficiency-by-fuel-type.component';
+import {TotalCostByFuelTypeComponent} from './total-cost-by-fuel-type/total-cost-by-fuel-type.component';
+import {RefillHistoryComponent} from './refill-history/refill-history.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import {AllFuelComparisonComponent} from './all-fuel-comparison/all-fuel-compari
     UsersComponent,
     FuelComparisonComponent,
     EditMotorcycleComponent, // Asegúrate de declarar EditMotorcycleComponent
-    AllFuelComparisonComponent
+    AllFuelComparisonComponent,
+    EfficiencyByFuelTypeComponent,
+    TotalCostByFuelTypeComponent,
+    RefillHistoryComponent
   ],
   imports: [
     BrowserModule,

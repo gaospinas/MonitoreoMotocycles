@@ -23,4 +23,12 @@ export class RefillService {
   getAllUserMotorcycleRefills(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/allUserMotorcycleRefills`);
   }
+
+  getEfficiencyByFuelType(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/efficiencyByFuelType`);
+  }
+
+  getTotalCostByFuelType(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/totalCostByFuelType`);
+  }
 }
