@@ -1,13 +1,39 @@
-<ngx-charts-line-chart
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="data"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel">
-</ngx-charts-line-chart>
+<div>
+  <label for="chartType">Select Chart Type:</label>
+  <select id="chartType" [(ngModel)]="selectedChart">
+    <option value="line">Line Chart</option>
+    <option value="area">Area Chart</option>
+  </select>
+</div>
+
+<div [ngSwitch]="selectedChart">
+  <ngx-charts-line-chart
+    *ngSwitchCase="'line'"
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="data"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-line-chart>
+
+  <ngx-charts-area-chart
+    *ngSwitchCase="'area'"
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="data"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-area-chart>
+</div>
