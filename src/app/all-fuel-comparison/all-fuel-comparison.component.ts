@@ -10,6 +10,7 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
 export class AllFuelComparisonComponent implements OnInit {
   data: any[] = [];
   view: [number, number] = [700, 400];
+  selectedChart = 'line'; // Default chart type
 
   // options
   showXAxis = true;
@@ -43,7 +44,7 @@ export class AllFuelComparisonComponent implements OnInit {
     });
   }
 
-  transformData(result: any[]): any[] {
+  transformData(result: any): any[] {
     const transformedData = result.map((item: any) => {
       if (item && item.userName && item.motorcycleBrand && item.motorcycleModel && item.refills) {
         return {
@@ -57,7 +58,7 @@ export class AllFuelComparisonComponent implements OnInit {
         console.warn('Datos incompletos o nulos:', item);
         return null;
       }
-    }).filter(item => item !== null);
+    }).filter((item: any) => item !== null); // Especificar el tipo any para el parámetro item
     console.log('Datos transformados para ngx-charts:', transformedData);
     return transformedData;
   }
